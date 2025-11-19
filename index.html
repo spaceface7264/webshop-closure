@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <meta name="description" content="Boulders webshop er lukket. Alle produkter kan stadig købes i alle Boulders haller. Kontakt os for refunderinger.">
+  <meta name="description" content="Boulders webshop er lukket. Alle varer kan stadig købes i alle Boulders haller. Kontakt os for refunderinger.">
   <meta name="robots" content="index, follow">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Boulders Shop - Webshop Lukket">
-  <meta property="og:description" content="Boulders webshop er lukket. Alle produkter kan stadig købes i alle Boulders haller.">
+  <meta property="og:description" content="Boulders webshop er lukket. Alle varer kan stadig købes i alle Boulders haller.">
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Boulders Shop - Webshop Lukket">
-  <meta name="twitter:description" content="Boulders webshop er lukket. Alle produkter kan stadig købes i alle Boulders haller.">
+  <meta name="twitter:description" content="Boulders webshop er lukket. Alle varer kan stadig købes i alle Boulders haller.">
   
   <title>Boulders Shop - Webshop Lukket</title>
   <link rel="preload" href="Boulders Shop Logo White.avif" as="image">
@@ -177,25 +177,42 @@
       margin-bottom: 0;
     }
 
-    .email-link {
-      color: #ff00ff;
+    .email-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #ff00ff;
+      color: #ffffff;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s ease;
-      display: inline;
-      padding: 4px 2px;
-      -webkit-tap-highlight-color: rgba(255, 0, 255, 0.2);
-      white-space: nowrap;
+      font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      -webkit-tap-highlight-color: rgba(255, 0, 255, 0.3);
+      touch-action: manipulation;
     }
 
-    .email-link:hover,
-    .email-link:focus {
-      color: #ff66ff;
-      text-decoration: underline;
+    @media (hover: hover) and (pointer: fine) {
+      .email-button:hover {
+        background: #ff66ff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(255, 0, 255, 0.3);
+      }
     }
 
-    .email-link:active {
-      color: #ff66ff;
+    .email-button:focus {
+      background: #ff66ff;
+      box-shadow: 0 2px 8px rgba(255, 0, 255, 0.3);
+      outline: none;
+    }
+
+    .email-button:active {
+      transform: scale(0.98);
+      background: #ff66ff;
     }
 
     .gym-link {
@@ -203,44 +220,31 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      margin-top: 2rem;
-      padding: 1rem 2rem;
-      min-height: 44px;
-      min-width: 200px;
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
       background: #ff00ff;
       color: #ffffff;
       text-decoration: none;
       font-weight: 600;
-      font-size: clamp(0.9rem, 1.8vw, 1rem);
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+      border-radius: 4px;
+      letter-spacing: 0.5px;
       transition: all 0.3s ease;
       -webkit-tap-highlight-color: rgba(255, 0, 255, 0.3);
       touch-action: manipulation;
     }
 
-    .gym-link::after {
-      content: '↗';
-      font-size: 1.2em;
-      transition: transform 0.3s ease;
-    }
-
     @media (hover: hover) and (pointer: fine) {
-      .gym-link:hover::after {
-        transform: translate(4px, -4px);
-      }
-
       .gym-link:hover {
         background: #ff66ff;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(255, 0, 255, 0.4);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(255, 0, 255, 0.3);
       }
     }
 
     .gym-link:focus {
       background: #ff66ff;
-      box-shadow: 0 4px 12px rgba(255, 0, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(255, 0, 255, 0.3);
     }
 
     .gym-link:active {
@@ -274,6 +278,44 @@
       color: #999;
       margin-top: 2rem;
       font-style: italic;
+    }
+
+    .language-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(30, 30, 30, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      color: #ffffff;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+      -webkit-tap-highlight-color: rgba(255, 0, 255, 0.2);
+    }
+
+    .language-toggle:hover,
+    .language-toggle:focus {
+      background: rgba(30, 30, 30, 0.95);
+      border-color: #ff00ff;
+      color: #ff00ff;
+      outline: none;
+    }
+
+    .language-toggle:active {
+      transform: scale(0.98);
+    }
+
+    @media (max-width: 768px) {
+      .language-toggle {
+        top: 0.75rem;
+        right: 0.75rem;
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+      }
     }
 
     footer {
@@ -316,8 +358,16 @@
         width: 100%;
         max-width: 100%;
         min-width: auto;
-        padding: 1rem 1.5rem;
-        font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+        padding: 0.7rem 1.2rem;
+        font-size: clamp(0.85rem, 3vw, 0.95rem);
+      }
+
+      .email-button {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+        padding: 0.6rem 1.1rem;
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
       }
 
       footer {
@@ -414,48 +464,81 @@
 </head>
 <body>
   <div class="closure-container">
+    <button class="language-toggle" id="langToggle" aria-label="Switch language">EN</button>
+    
     <div class="logo">
       <img src="Boulders Shop Logo White.avif" alt="Boulders Shop" loading="eager" width="200" height="auto">
     </div>
     
-    <div class="announcement">Webshoppen er lukket</div>
+    <div class="announcement" data-da="Webshoppen er lukket" data-en="Webshop Closed">Webshoppen er lukket</div>
     
-    <div class="message">
+    <div class="message" data-da="Vi har besluttet at lukke Boulders' webshop, så vi kan bruge vores energi på det, vi er bedst til: at bygge flere Boulders haller i Danmark. Alle varer kan stadig købes i vores haller, hvor du kan prøve varerne med det samme og få hjælp af personalet." data-en="We have decided to close Boulders' webshop so we can focus our energy on what we do best: building more Boulders gyms in Denmark. All items can still be purchased in our gyms, where you can try them right away and get help from our staff.">
         Vi har besluttet at lukke Boulders' webshop, så vi kan bruge vores energi på det, vi er bedst til: at bygge flere Boulders haller i Danmark.
-        Alle produkter kan stadig købes i vores haller, hvor du kan prøve varerne med det samme og få hjælp af personalet.</div>
+        Alle varer kan stadig købes i vores haller, hvor du kan prøve varerne med det samme og få hjælp af personalet.</div>
       
         <div class="info-section">
-            <h2>Køb i hallerne</h2>
-            <p>
-                Selvom webshoppen er lukket, beholder vi alle produkter − du finder det samme udvalg i vores shops i hallerne. Du kan stadig købe klatresko, træningsudstyr, kalk og meget mere.
-            </p>
-
-            <p>
-                Besøg din lokale Boulders hal for at se vores udvalg af klatresko, træningsudstyr, kalk og meget mere.
-            </p>
+          <h2 data-da="Køb i hallerne" data-en="Buy in the gyms">Køb i hallerne</h2>
+          <p data-da="Selvom webshoppen er lukket, beholder vi alle varer − du finder det samme udvalg i vores shops i hallerne. Du kan stadig købe klatresko, træningsudstyr, kalk og meget mere. Besøg din lokale Boulders hal for at se vores udvalg." data-en="Although the webshop is closed, we still have all items − you'll find the same selection in our shops in the gyms. You can still buy climbing shoes, training equipment, chalk, and much more. Visit your local Boulders gym to see our selection.">
+            Selvom webshoppen er lukket, beholder vi alle varer − du finder det samme udvalg i vores shops i hallerne. Du kan stadig købe klatresko, træningsudstyr, kalk og meget mere. Besøg din lokale Boulders hal for at se vores udvalg.
+          </p>
+          <a href="https://boulders.dk/gyms" class="gym-link" aria-label="Find nærmeste Boulders hal" data-da="Find nærmeste hal" data-en="Find nearest gym">Find nærmeste hal</a>
+          </div>
+          
+          
+        <div class="info-section">
+        <h2 data-da="Refundering" data-en="Refunds">Refundering</h2>
+        <p data-da="Har du brug for en refundering eller spørgsmål til en tidligere ordre, hjælper vi dig gerne." data-en="If you need a refund or have questions about a previous order, we're happy to help.">
+            Har du brug for en refundering eller spørgsmål til en tidligere ordre, hjælper vi dig gerne.
+          </p>
+          <a href="mailto:hej@boulders.dk" class="email-button" data-da="Send email til hej@boulders.dk" data-en="Email hej@boulders.dk" aria-label="Send email to hej@boulders.dk">Send email til hej@boulders.dk</a>
         </div>
         
         <div class="info-section">
-        <h2>Refundering</h2>
-        <p>
-            Har du brug for en refundering eller spørgsmål til en tidligere ordre, hjælper vi dig gerne. Send en mail på <a href="mailto:hej@boulders.dk" class="email-link">hej@boulders.dk</a>, så vender vi tilbage hurtigst muligt. 
-          </p>
-        </div>
-        
-        <div class="info-section">
-          <h2>Medlemsrabat</h2>
-          <p>
-          Selvom webshoppen er lukket, kan du selvfølgelig stadig 10% medlemsrabat, hvis du er medlem i Boulders. Du får samme 10% rabat på alt fra shoppen, når du scanner dit medlemskort. 
-          </p>
+          <h2 data-da="Medlemsrabat" data-en="Member Discount">Medlemsrabat</h2>
+          <p data-da="Selvom webshoppen er lukket, kan du selvfølgelig stadig få 10% medlemsrabat, hvis du er medlem i Boulders. Du får samme 10% rabat på alt fra shoppen, når du scanner dit medlemskort." data-en="Although the webshop is closed, you can of course still get 10% member discount if you're a Boulders member. You'll get the same 10% discount on everything from the shop when you scan your membership card.">
+          Selvom webshoppen er lukket, kan du selvfølgelig stadig få 10% medlemsrabat, hvis du er medlem i Boulders. Du får samme 10% rabat på alt fra shoppen, når du scanner dit medlemskort. 
+                   </p>
+          <a href="https://boulders.dk/bloclife" class="gym-link" data-da="Læs om medlemskab" data-en="Learn about membership" aria-label="Learn about Boulders membership">Læs om medlemskab</a>
           </div>
         
-          
-    <a href="https://boulders.dk/gyms" class="gym-link" aria-label="Find nærmeste Boulders hal">Find nærmeste hal</a>
+                  
+
 
     <footer>
       <h2><a href="https://boulders.dk" class="website-link" aria-label="Besøg Boulders.dk">boulders.dk</a></h2>
     </footer>
   </div>
+
+  <script>
+    (function() {
+      const langToggle = document.getElementById('langToggle');
+      let currentLang = localStorage.getItem('boulders-lang') || 'da';
+      
+      function updateLanguage(lang) {
+        const elements = document.querySelectorAll('[data-da], [data-en]');
+        elements.forEach(el => {
+          const text = el.getAttribute(`data-${lang}`);
+          if (text) {
+            el.textContent = text;
+          }
+        });
+        langToggle.textContent = lang === 'da' ? 'EN' : 'DA';
+        langToggle.setAttribute('aria-label', lang === 'da' ? 'Switch to English' : 'Skift til dansk');
+        currentLang = lang;
+        localStorage.setItem('boulders-lang', lang);
+      }
+      
+      langToggle.addEventListener('click', function() {
+        const newLang = currentLang === 'da' ? 'en' : 'da';
+        updateLanguage(newLang);
+      });
+      
+      // Initialize language on page load
+      if (currentLang === 'en') {
+        updateLanguage('en');
+      }
+    })();
+  </script>
 </body>
 </html>
 
