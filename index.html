@@ -2,8 +2,22 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="Boulders webshop er lukket. Alle produkter kan stadig købes i alle Boulders haller. Kontakt os for refunderinger.">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Boulders Shop - Webshop Lukket">
+  <meta property="og:description" content="Boulders webshop er lukket. Alle produkter kan stadig købes i alle Boulders haller.">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Boulders Shop - Webshop Lukket">
+  <meta name="twitter:description" content="Boulders webshop er lukket. Alle produkter kan stadig købes i alle Boulders haller.">
+  
   <title>Boulders Shop - Webshop Lukket</title>
+  <link rel="preload" href="Boulders Shop Logo White.avif" as="image">
   <style>
     * {
       margin: 0;
@@ -11,28 +25,77 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Avenir Next Condensed', 'Arial Narrow', Arial, sans-serif;
       line-height: 1.6;
       color: #f5f5f5;
-      background-color: #ededed;
+      background-color: #000000;
+      background-image: url('Photo 08-10-2022, 19.46.45.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Accessibility: Focus styles */
+    *:focus-visible {
+      outline: 2px solid #ff00ff;
+      outline-offset: 3px;
+      border-radius: 4px;
     }
 
     .closure-container {
       max-width: 800px;
       width: 100%;
       text-align: center;
-      background: #1E1E1E;
-      border: 1px solid #333;
+      background: rgba(30, 30, 30, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 4px;
       padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 4rem);
       padding-bottom: 3vw;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+      animation: fadeInUp 0.6s ease-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .logo {
@@ -45,6 +108,19 @@
       height: auto;
       max-height: 120px;
       width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 480px) {
+      .logo img {
+        max-height: 80px;
+      }
+    }
+
+    .logo img[src=""],
+    .logo img:not([src]) {
+      display: none;
     }
 
     .announcement {
@@ -54,13 +130,15 @@
       margin-bottom: 2rem;
       text-transform: uppercase;
       letter-spacing: 1px;
+      word-wrap: break-word;
     }
 
     .message {
       font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-      color: #e0e0e0;
+      color: #ffffff;
       margin-bottom: 3rem;
       line-height: 1.8;
+      word-wrap: break-word;
     }
 
     .info-section {
@@ -70,6 +148,14 @@
       padding: 2rem;
       margin-bottom: 2rem;
       text-align: left;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .info-section:hover {
+        transform: translateY(-2px);
+        border-color: #444;
+      }
     }
 
     .info-section h2 {
@@ -82,8 +168,9 @@
 
     .info-section p {
       font-size: clamp(1rem, 2vw, 1.1rem);
-      color: #d0d0d0;
+      color: #ffffff;
       margin-bottom: 1rem;
+      word-wrap: break-word;
     }
 
     .info-section p:last-child {
@@ -95,19 +182,32 @@
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
+      display: inline-block;
+      min-height: 44px;
+      line-height: 44px;
+      padding: 0 4px;
+      -webkit-tap-highlight-color: rgba(255, 0, 255, 0.2);
     }
 
-    .email-link:hover {
+    .email-link:hover,
+    .email-link:focus {
       color: #ff66ff;
       text-decoration: underline;
+    }
+
+    .email-link:active {
+      color: #ff66ff;
     }
 
     .gym-link {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
       margin-top: 2rem;
       padding: 1rem 2rem;
+      min-height: 44px;
+      min-width: 200px;
       background: #ff00ff;
       color: #ffffff;
       text-decoration: none;
@@ -117,6 +217,8 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all 0.3s ease;
+      -webkit-tap-highlight-color: rgba(255, 0, 255, 0.3);
+      touch-action: manipulation;
     }
 
     .gym-link::after {
@@ -125,14 +227,26 @@
       transition: transform 0.3s ease;
     }
 
-    .gym-link:hover::after {
-      transform: translate(4px, -4px);
+    @media (hover: hover) and (pointer: fine) {
+      .gym-link:hover::after {
+        transform: translate(4px, -4px);
+      }
+
+      .gym-link:hover {
+        background: #ff66ff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 0, 255, 0.4);
+      }
     }
 
-    .gym-link:hover {
+    .gym-link:focus {
       background: #ff66ff;
-      transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(255, 0, 255, 0.4);
+    }
+
+    .gym-link:active {
+      transform: scale(0.98);
+      background: #ff66ff;
     }
 
     .website-link {
@@ -140,6 +254,20 @@
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
+      display: inline-block;
+      min-height: 44px;
+      line-height: 44px;
+      padding: 0 8px;
+      -webkit-tap-highlight-color: rgba(255, 0, 255, 0.2);
+    }
+
+    .website-link:hover,
+    .website-link:focus {
+      color: #ff00ff;
+    }
+
+    .website-link:active {
+      color: #ff00ff;
     }
 
     .timeframe {
@@ -163,17 +291,124 @@
       margin: 0;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       body {
         padding: 1rem;
+        align-items: flex-start;
+        padding-top: 2rem;
       }
 
       .closure-container {
         padding: 2rem 1.5rem;
+        padding-bottom: 2rem;
+        margin: 0 auto;
       }
 
       .info-section {
         padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-section h2 {
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
+      }
+
+      .gym-link {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+        padding: 1rem 1.5rem;
+        font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+      }
+
+      footer {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0.75rem;
+        padding-top: 1.5rem;
+      }
+
+      .closure-container {
+        padding: 1.5rem 1rem;
+        border-radius: 0;
+      }
+
+      .announcement {
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.5px;
+      }
+
+      .message {
+        font-size: clamp(1rem, 4vw, 1.15rem);
+        margin-bottom: 2rem;
+        line-height: 1.7;
+      }
+
+      .info-section {
+        padding: 1.25rem;
+        border-radius: 6px;
+      }
+
+      .info-section h2 {
+        font-size: clamp(1rem, 4.5vw, 1.2rem);
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+      }
+
+      .info-section p {
+        font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+        margin-bottom: 0.875rem;
+        line-height: 1.7;
+      }
+
+      .gym-link {
+        padding: 0.875rem 1.25rem;
+        margin-top: 1.5rem;
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        letter-spacing: 0.5px;
+      }
+
+      footer {
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+      }
+
+      footer h2 {
+        font-size: clamp(1rem, 4vw, 1.15rem);
+      }
+    }
+
+    /* Prevent text size adjustment on iOS */
+    @media screen and (max-width: 768px) {
+      html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+    }
+
+    /* Landscape mobile optimization */
+    @media (max-width: 768px) and (orientation: landscape) {
+      body {
+        padding: 1rem;
+        align-items: center;
+        background-attachment: scroll;
+      }
+
+      .closure-container {
+        padding: 2rem 2rem;
+      }
+    }
+
+    /* Mobile background optimization */
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;
       }
     }
   </style>
@@ -181,7 +416,7 @@
 <body>
   <div class="closure-container">
     <div class="logo">
-      <img src="Boulders Shop Logo White.avif" alt="Boulders Shop">
+      <img src="Boulders Shop Logo White.avif" alt="Boulders Shop" loading="eager" width="200" height="auto">
     </div>
     
     <div class="announcement">Webshoppen er lukket</div>
@@ -194,8 +429,7 @@
         <div class="info-section">
             <h2>Kan stadig købes i hallerne</h2>
             <p>
-                Selvom webshoppen er lukket, beholder vi dog vores butikker i hallerne og har stadig alt tilgængeligt.
-                Alle varer kan købes i alle Boulders hallerne: klatresko, kalk, merch, træningsudstyr og alt det andet, du kender fra webshoppen.
+                Selvom webshoppen er lukket, beholder vi alle produkter. Fremover finder du det samme udvalg i vores shops i hallerne.
             </p>
             <p>
                 Besøg din lokale Boulders hal for at se vores udvalg af klatresko, træningsudstyr, kalk og meget mere.
@@ -205,15 +439,14 @@
         <div class="info-section">
         <h2>Refundering</h2>
         <p>
-            Har du brug for en refundering eller spørgsmål til en tidligere ordre, hjælper vi dig gerne.
-    Send en mail på <a href="mailto:hej@boulders.dk" class="email-link">hej@boulders.dk</a>, så vender vi tilbage hurtigst muligt. 
+            Har du brug for en refundering eller spørgsmål til en tidligere ordre, hjælper vi dig gerne. Send en mail på <a href="mailto:hej@boulders.dk" class="email-link">hej@boulders.dk</a>, så vender vi tilbage hurtigst muligt. 
           </p>
         </div>
         
-    <a href="https://boulders.dk/gyms" class="gym-link">Find nærmeste hal</a>
+    <a href="https://boulders.dk/gyms" class="gym-link" aria-label="Find nærmeste Boulders hal">Find nærmeste hal</a>
 
     <footer>
-      <h2><a href="https://boulders.dk/gyms" class="website-link">boulders.dk</a></h2>
+      <h2><a href="https://boulders.dk" class="website-link" aria-label="Besøg Boulders.dk">boulders.dk</a></h2>
     </footer>
   </div>
 </body>
