@@ -190,7 +190,7 @@
       font-weight: 600;
       font-size: clamp(0.85rem, 1.6vw, 0.95rem);
       border-radius: 4px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.1px;
       transition: all 0.3s ease;
       -webkit-tap-highlight-color: rgba(255, 0, 255, 0.3);
       touch-action: manipulation;
@@ -228,7 +228,7 @@
       font-weight: 600;
       font-size: clamp(0.85rem, 1.6vw, 0.95rem);
       border-radius: 4px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.1px;
       transition: all 0.3s ease;
       -webkit-tap-highlight-color: rgba(255, 0, 255, 0.3);
       touch-action: manipulation;
@@ -258,8 +258,6 @@
       font-weight: 600;
       transition: color 0.3s ease;
       display: inline-block;
-      min-height: 44px;
-      line-height: 44px;
       padding: 0 8px;
       -webkit-tap-highlight-color: rgba(255, 0, 255, 0.2);
     }
@@ -271,13 +269,6 @@
 
     .website-link:active {
       color: #ff00ff;
-    }
-
-    .timeframe {
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      color: #999;
-      margin-top: 2rem;
-      font-style: italic;
     }
 
     .language-toggle {
@@ -374,6 +365,10 @@
         margin-top: 2rem;
         padding-top: 1.5rem;
       }
+
+      body {
+        background-attachment: scroll;
+      }
     }
 
     @media (max-width: 480px) {
@@ -390,7 +385,7 @@
       .announcement {
         font-size: clamp(1.25rem, 5vw, 1.75rem);
         margin-bottom: 1.5rem;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.1px;
       }
 
       .message {
@@ -420,7 +415,7 @@
         padding: 0.875rem 1.25rem;
         margin-top: 1.5rem;
         font-size: clamp(0.9rem, 3.5vw, 1rem);
-        letter-spacing: 0.5px;
+        letter-spacing: 0.1px;
       }
 
       footer {
@@ -454,12 +449,6 @@
       }
     }
 
-    /* Mobile background optimization */
-    @media (max-width: 768px) {
-      body {
-        background-attachment: scroll;
-      }
-    }
   </style>
 </head>
 <body>
@@ -472,9 +461,10 @@
     
     <div class="announcement" data-da="Webshoppen er lukket" data-en="Webshop Closed">Webshoppen er lukket</div>
     
-    <div class="message" data-da="Vi har besluttet at lukke Boulders' webshop, så vi kan bruge vores energi på det, vi er bedst til: at bygge flere Boulders haller i Danmark. Alle varer kan stadig købes i vores haller, hvor du kan prøve varerne med det samme og få hjælp af personalet." data-en="We have decided to close Boulders' webshop so we can focus our energy on what we do best: building more Boulders gyms in Denmark. All items can still be purchased in our gyms, where you can try them right away and get help from our staff.">
+    <div class="message" data-da="Vi har besluttet at lukke Boulders' webshop, så vi kan bruge vores energi på det, vi er bedst til: at bygge flere Boulders haller i Danmark. Alle varer kan stadig købes i vores haller, hvor du kan prøve varerne med det samme og få hjælp af personalet. Eksisterende ordrer bliver leveret som planlagt." data-en="We have decided to close Boulders' webshop so we can focus our energy on what we do best: building more Boulders gyms in Denmark. All items can still be purchased in our gyms, where you can try them right away and get help from our staff. Existing orders will be delivered as planned.">
         Vi har besluttet at lukke Boulders' webshop, så vi kan bruge vores energi på det, vi er bedst til: at bygge flere Boulders haller i Danmark.
-        Alle varer kan stadig købes i vores haller, hvor du kan prøve varerne med det samme og få hjælp af personalet.</div>
+        Alle varer kan stadig købes i vores haller, hvor du kan prøve varerne med det samme og få hjælp af personalet.
+      <br><br><span data-da="Eksisterende ordrer bliver leveret som planlagt." data-en="Existing orders will be delivered as planned.">Eksisterende ordrer bliver leveret som planlagt.</span></div>
       
         <div class="info-section">
           <h2 data-da="Køb i hallerne" data-en="Buy in the gyms">Køb i hallerne</h2>
@@ -483,26 +473,22 @@
           </p>
           <a href="https://boulders.dk/gyms" class="gym-link" aria-label="Find nærmeste Boulders hal" data-da="Find nærmeste hal" data-en="Find nearest gym">Find nærmeste hal</a>
           </div>
-          
-          
+
         <div class="info-section">
         <h2 data-da="Refundering" data-en="Refunds">Refundering</h2>
         <p data-da="Har du brug for en refundering eller spørgsmål til en tidligere ordre, hjælper vi dig gerne." data-en="If you need a refund or have questions about a previous order, we're happy to help.">
             Har du brug for en refundering eller spørgsmål til en tidligere ordre, hjælper vi dig gerne.
           </p>
-          <a href="mailto:hej@boulders.dk" class="email-button" data-da="Send email til hej@boulders.dk" data-en="Email hej@boulders.dk" aria-label="Send email to hej@boulders.dk">Send email til hej@boulders.dk</a>
+          <a href="mailto:hej@boulders.dk" class="email-button" data-da="Send email til hej@boulders.dk" data-en="Email hej@boulders.dk" aria-label="Send email">Send email</a>
         </div>
         
         <div class="info-section">
           <h2 data-da="Medlemsrabat" data-en="Member Discount">Medlemsrabat</h2>
           <p data-da="Selvom webshoppen er lukket, kan du selvfølgelig stadig få 10% medlemsrabat, hvis du er medlem i Boulders. Du får samme 10% rabat på alt fra shoppen, når du scanner dit medlemskort." data-en="Although the webshop is closed, you can of course still get 10% member discount if you're a Boulders member. You'll get the same 10% discount on everything from the shop when you scan your membership card.">
-          Selvom webshoppen er lukket, kan du selvfølgelig stadig få 10% medlemsrabat, hvis du er medlem i Boulders. Du får samme 10% rabat på alt fra shoppen, når du scanner dit medlemskort. 
+          Selvom webshoppen er lukket, kan du selvfølgelig stadig få 10% medlemsrabat, hvis du er medlem i Boulders. Du får samme rabat på alt fra shoppen, når du scanner dit medlemskort. 
                    </p>
           <a href="https://boulders.dk/bloclife" class="gym-link" data-da="Læs om medlemskab" data-en="Learn about membership" aria-label="Learn about Boulders membership">Læs om medlemskab</a>
           </div>
-        
-                  
-
 
     <footer>
       <h2><a href="https://boulders.dk" class="website-link" aria-label="Besøg Boulders.dk">boulders.dk</a></h2>
